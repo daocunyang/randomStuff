@@ -3,7 +3,7 @@
 # A script to collect some basic info (e.g. CPU, memory, IP address, etc) from servers. 
 
 echo "" > ./info.txt
-for i in 127.0.0.1;  # replace with your IP addresses, separated by a space
+for i in 127.0.0.1;  # replace with your IP addresses, separated by a space if more than one address
 do
   ssh root@$i "hostname" >> ./info.txt
   ssh root@$i "/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{print $1}'" >> ./info.txt
